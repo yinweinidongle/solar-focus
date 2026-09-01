@@ -39,7 +39,7 @@ export class HeatMap {
   accumulate(u: number, v: number, dt: number, speedFactor: number, onPaper: boolean) {
     if (!onPaper) return this.maxHeat()
     const x = Math.floor(u * (this.size - 1))
-    const y = Math.floor((1 - v) * (this.size - 1))
+    const y = Math.floor(v * (this.size - 1))
     if (x < 2 || y < 2 || x >= this.size - 2 || y >= this.size - 2) return this.maxHeat()
 
     // ~2.5–3.5s hold when still

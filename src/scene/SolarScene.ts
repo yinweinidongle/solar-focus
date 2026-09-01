@@ -446,7 +446,8 @@ export class SolarScene {
 
     // UV on paper
     const u = (this.focusWorld.x + PAPER_W * 0.5) / PAPER_W
-    const v = (this.focusWorld.z + PAPER_H * 0.5) / PAPER_H
+    // PlaneGeometry rotated -90deg X: local +Y -> world -Z, so v flips with z
+    const v = 1 - (this.focusWorld.z + PAPER_H * 0.5) / PAPER_H
     this.focusUV.set(u, v)
 
     const onPaper = u >= 0 && u <= 1 && v >= 0 && v <= 1
